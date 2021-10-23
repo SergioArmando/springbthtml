@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+    <h1 align="center">Mi primer pagina</h1>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+  <body style="background-color:lightgreen;">
+       
+        <p th:text="${msg}"></p>
+        <br/>
+        <div th:if="${personas != null and !personas.empty}">
+             <div style="text-align:center;">
+                 <table  border="1"style="margin: 0 auto;" >
+            <tr>
+                <th>Nombre</th>
+                <th>Enero</th>
+                <th>Febrero</th>
+                <th>Marzo</th>
+                <th>Total</th>
+                <th>Promedio</th>
+            </tr>
+            
+            <!-- vamos hacer una iteracion de objeto -->
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.Nombre}"></td>
+                <td th:text="${persona.Enero}"></td>
+                 <td th:text="${persona.Febrero}"></td>
+                 <td th:text="${persona.Marzo}"></td>
+                 <td th:text="${persona.Total}"></td>
+                 <td th:text="${persona.Promedio}"></td>
+            </tr>
+                 </table > 
+           
+        
+        </div>
+        
+        <div th:if ="${personas ==null or personas.empty}">
+            no hay cuates.
+        </div>
+              
+    </body>
+</html>
